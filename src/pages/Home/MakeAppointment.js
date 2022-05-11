@@ -2,7 +2,7 @@ import React from 'react';
 
 const MakeAppointment = () => {
     return (
-        <section className="flex justify-content items-center p-3 rounded-md" style={{background:`url(${'https://i.ibb.co/zQvGf6T/appointment.png'})`}}>
+        <section className="flex justify-content items-center p-3 rounded-md lg:my-36 my-12" style={{background:`url(${'https://i.ibb.co/zQvGf6T/appointment.png'})`}}>
             <div className="flex-1 lg:block hidden">
                 <img className="mt-[-100px]" src="https://i.ibb.co/qMQSrr1/doctor-small.png" alt="" />
             </div>
