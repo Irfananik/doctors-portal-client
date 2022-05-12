@@ -11,7 +11,7 @@ import Footer from './pages/Shared/Footer';
 
 function App() {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto px-12">
       <Navebar/>
       <Routes>
         <Route path="/" element={<Home />} />
