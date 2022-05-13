@@ -8,20 +8,27 @@ import Reviews from './Reviews/Reviews';
 import Contact from './Contact/Contact';
 import Login from './Register/Login';
 import Footer from './pages/Shared/Footer';
+import SignUp from './Register/SignUp';
+import RequireAuth from './Register/RequireAuth';
 
 function App() {
   return (
     <div className="max-w-7xl mx-auto px-12">
-      <Navebar/>
+      <Navebar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/appointment" element={<Appointment />} />
+        <Route path="/appointment" element={
+          <RequireAuth>
+            <Appointment />
+          </RequireAuth>
+        } />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
