@@ -28,13 +28,15 @@ const MyAppointment = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {appointments.map(a => <tr>
-                            <th>1</th>
-                            <td>{user.displayName}</td>
-                            <td>{a.date}</td>
-                            <td>{a.slot}</td>
-                            <td>{a.treatment}</td>
-                        </tr>)}
+                        {
+                            appointments.map((a, index) => <tr>
+                                <th>{index + 1}</th>
+                                <td>{a.patientName}</td>
+                                <td>{a.date}</td>
+                                <td>{a.slot}</td>
+                                <td>{a.treatment}</td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
