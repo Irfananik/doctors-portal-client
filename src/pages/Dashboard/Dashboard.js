@@ -7,7 +7,7 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content ">
                 <h1 className="font-bold text-secondary text-3xl my-8">Welcome to your dashboard</h1>
-            <Outlet />
+                <Outlet />
 
             </div>
             <div class="drawer-side">
