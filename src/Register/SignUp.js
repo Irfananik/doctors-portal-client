@@ -4,6 +4,8 @@ import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../pages/Shared/Loading';
 import { Link, useNavigate } from 'react-router-dom';
+import useToken from '../hooks/useToken';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth)
@@ -23,8 +25,10 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth)
 
-    if (user || gUser) {
-        console.log("Here", gUser || user)
+    const [token] = useToken(user || gUser)
+
+    if (token) {
+        navigate('/appointment')
     }
 
     if (loading || gLoading || updating) {
@@ -38,8 +42,7 @@ const SignUp = () => {
     const onSubmit = async data => {
        await createUserWithEmailAndPassword(data.email, data.password)
        await updateProfile({displayName: data.name})
-       console.log('updateProfile')
-       navigate('/appointment')
+       toast('SignUp Done')
     }
 
     return (
