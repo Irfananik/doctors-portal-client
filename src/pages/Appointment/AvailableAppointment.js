@@ -12,7 +12,7 @@ const AvailableAppointment = ({ date }) => {
     const dateFormated = format(date, 'PP')
 
     //react query for data load and fetch
-    const { data: services, isLoading, refetch } = useQuery(['available', dateFormated], () => fetch(`http://localhost:5000/available?date=${dateFormated}`)
+    const { data: services, isLoading, refetch } = useQuery(['available', dateFormated], () => fetch(`https://aqueous-dawn-81823.herokuapp.com/available?date=${dateFormated}`)
         .then(response => response.json())
     )
     if(isLoading){
@@ -20,7 +20,7 @@ const AvailableAppointment = ({ date }) => {
     }
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/available?date=${dateFormated}`)
+    //     fetch(`https://aqueous-dawn-81823.herokuapp.com/available?date=${dateFormated}`)
     //         .then(response => response.json())
     //         .then(data => setServices(data))
     // }, [dateFormated])
