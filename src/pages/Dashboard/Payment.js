@@ -1,12 +1,18 @@
 import React from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import { Elements } from '@stripe/react-stripe-js';
+import CheckoutForm from './CheckoutForm';
+
+
+const stripePromise = loadStripe('pk_test_51L18LSCyQXzkK53DcdpQQ0dg14L8EgfTWyaPVwX0vcPz0uoy20MZKEE2c8SVySTehFRYJmt6e6sXm8mKpXL2mr5y00TakVTgij')
 
 const Payment = () => {
     const { id } = useParams()
 
-    const url = `http://localhost:5000/booking/${id}`
+    const url = `https://aqueous-dawn-81823.herokuapp.com/booking/${id}`
 
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: 'GET',
@@ -31,7 +37,9 @@ const Payment = () => {
             </div>
             <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100 my-8">
                 <div className="card-body">
-
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm  appointment={appointment}/>
+                    </Elements>
                 </div>
             </div>
         </div>

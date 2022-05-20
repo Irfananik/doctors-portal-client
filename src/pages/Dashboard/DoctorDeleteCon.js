@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DoctorDeleteCon = ({ deleteDoctorConfirm, refetch, setDeleteDoctorComfirm }) => {
     const { name, email } = deleteDoctorConfirm
     const doctorDelete = () => {
-        fetch(`http://localhost:5000/doctor/${email}`, {
+        fetch(`https://aqueous-dawn-81823.herokuapp.com/doctor/${email}`, {
 
             method: 'DELETE',
             headers: {

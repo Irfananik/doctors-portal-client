@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm()
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(response => response.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://aqueous-dawn-81823.herokuapp.com/services').then(response => response.json()))
 
     const imageStorageKey = 'ee9ff619829be90d22cb188bb657dd9b'
 
@@ -30,7 +30,7 @@ const AddDoctor = () => {
                         specialty: data.specialty,
                         img: img
                     }
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://aqueous-dawn-81823.herokuapp.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
